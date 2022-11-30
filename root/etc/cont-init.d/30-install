@@ -6,6 +6,8 @@ elif [ "$ARCH_VAR" == "arm64" ]; then
   ARCH_VAR=linux-aarch64
 elif [ "$ARCH_VAR" == "arm" ]; then
   ARCH_VAR=linux-arm
+elif [ "$ARCH_VAR" == "armv6" ]; then
+  ARCH_VAR=linux-armv6
 fi
 
 echo "Checking for valid arch options"
@@ -18,6 +20,9 @@ case $ARCH_VAR in
     ;;
   linux-arm)
     echo "Proceeding with linux-arm arch"
+    ;;
+  linux-armv6)
+    echo "Proceeding with linux-armv6 arch"
     ;;
   *)
     echo "Unrecognized or invalid arch selection, CANCELING INSTALL"
