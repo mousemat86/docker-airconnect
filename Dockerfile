@@ -9,8 +9,8 @@ ENV ARCH_VAR=$TARGETARCH
 RUN apt-get update && \
     apt-get install -y \
     curl \
-    libssl3 \
-    libssl-dev \
+    # libssl \
+    # libssl-dev \
     unzip \
     && rm -rf /var/lib/apt/lists/*
 
