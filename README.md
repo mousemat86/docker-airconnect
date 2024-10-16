@@ -22,7 +22,21 @@ This is a containerized build of the fantastics program by [philippe44](https://
 The main purpose for building this container over the others out there, is that this will always update to the latest version of the app as pulled from the original GitHub page. Currently there is another popular container that is not updated. This uses runtime scripting to ensure it will always pull the latest version of the binary before running - without intervention by me. It also uses the base image produced by the [LS.io team](https://github.com/linuxserver) to reduce footprint.
 
 
-Multi-arch support has been introduced, so there should be seamless use on AMD64, ARM64, and ARM devices.
+Multi-arch support has been introduced, so there should be seamless use on AMD64, ARM64, and ARM devices.\
+
+# Docker compose example
+The example below shows binding a volume which houses a config.xml and how to use an environment variable to load the configuration. 
+`version: "3.3"
+services:
+  airconnect:
+    network_mode: host
+    image: 1activegeek/airconnect
+    volumes:
+      - /home/root/data/airconnect:/config
+    environment:
+      - AIRCAST_VAR=-x /config/config.xml
+      - AIRUPNP_VAR=kill
+    restart: unless-stopped`
 
 # Running
 
